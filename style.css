@@ -1,0 +1,47 @@
+
+* {
+  box-sizing: border-box;
+}
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+.wrapper form {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.wrapper form label {
+  display: block;
+}
+
+.wrapper input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.wrapper form button {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+table {
+
+  width: 700px;
+  margin: 2rem auto;
+  border-collapse: collapse;
+}
+
+tr, td {
+  border: 1px solid gray;
+  height: 50px;
+  text-align: center;
+}
