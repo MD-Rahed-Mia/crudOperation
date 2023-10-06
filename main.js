@@ -11,16 +11,16 @@ function localData() {
 
 
   tBody.innerHTML = '';
-  lData.forEach(element => {
+  lData.forEach((element, index) => {
 
     trData = `
         <tr>
-          <td>${element.id}</td>
+          <td>${index+1}</td>
           <td>${element.name}</td>
           <td>${element.phone}</td>
           <td>${element.email}</td>
-          <td>Edit</td>
-          <td>Delete</td>
+          <td class="delBtn">Delete</td>
+          <td onclick="deleteData()">Edit</td>
         </tr>
     `;
     tBody.innerHTML += trData;
@@ -43,9 +43,27 @@ form.addEventListener("submit", (e) => {
   lData.push(obj2);
   localStorage.setItem('objData', JSON.stringify(lData))
   localData();
+
+  name.value = '';
+  phone.value = '';
+  email.value = '';
 })
-
-
 
 localData();
 
+
+let delBtn = document.querySelectorAll(".delBtn");
+console.log(delBtn);
+
+delBtn.forEach((ele, ind) => {
+  let lData = localStorage.getItem('objData') ? JSON.parse(localStorage.getItem('objData')) : [];
+
+
+  ele.addEventListener('click', () => {
+
+    ele.parentElement.remove();
+    lData.splice(ind, 1);
+
+    localStorage.setItem('objData', JSON.stringify(lData))
+  })
+})
